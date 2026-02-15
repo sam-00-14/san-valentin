@@ -1,42 +1,37 @@
-const API = "";
+const API = "https://TU-BACKEND.onrender.com";
 
-function mostrarSorpresa(){
-    document.getElementById("sorpresa").style.display="block";
-}
+ddocument.getElementById("btnSorpresa").addEventListener("click", () => {
+  document.getElementById("sorpresa").classList.remove("hidden");
+  document.getElementById("musica").play();
+});
 
 async function enviarMensaje(){
+  const nombre = document.getElementById("nombre").value;
+  const mensaje = document.getElementById("mensaje").value;
 
-    const nombre = document.getElementById("nombre").value;
-    const mensaje = document.getElementById("mensaje").value;
+  await fetch(API + "/mensaje", {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({ nombre, mensaje })
+  });
 
-    await fetch(API + "/mensaje", {
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify({ nombre, mensaje })
-    });
-
-    cargarMensajes();
+  cargarMensajes();
 }
 
 async function cargarMensajes(){
+  const res = await fetch(API + "/mensajes");
+  const data = await res.json();
 
-    const res = await fetch(API + "/mensajes");
-    const data = await res.json();
+  const cont = document.getElementById("listaMensajes");
+  cont.innerHTML = "";
 
-    const cont = document.getElementById("listaMensajes");
-
-    cont.innerHTML="";
-
-    data.reverse().forEach(m => {
-        cont.innerHTML += `
-        <div class="mensaje">
-        <b>${m.nombre}</b><br>
-        ${m.mensaje}
-        </div>
-        `;
-    });
+  data.slice().reverse().forEach(m => {
+    cont.innerHTML += `
+      <div class="mensaje">
+        <b>${m.nombre}</b><br>${m.mensaje}
+      </div>
+    `;
+  });
 }
 
 cargarMensajes();

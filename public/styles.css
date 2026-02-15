@@ -1,75 +1,69 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+body {
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family: 'Segoe UI', sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  margin:0;
 }
 
-body{
-    font-family:Segoe UI;
-    background: linear-gradient(135deg,#ff758c,#ff7eb3);
-    min-height:100vh;
+.card {
+  background:white;
+  width:90%;
+  max-width:380px;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 15px 30px rgba(0,0,0,.2);
 }
 
-.container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    min-height:100vh;
+button {
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:30px;
+  cursor:pointer;
+  margin:10px 0;
+  width:100%;
 }
 
-.card{
-    background:white;
-    width:100%;
-    max-width:420px;
-    border-radius:25px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+input, textarea {
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border-radius:10px;
+  border:1px solid #ddd;
 }
 
-h1{
-    color:#ff4d6d;
-    margin-bottom:15px;
+.hidden {
+  display:none;
 }
 
-.texto{
-    color:#444;
-    margin-bottom:20px;
-    line-height:1.6;
+#sorpresa {
+  animation: aparecer 1.5s ease forwards;
 }
 
-.btn{
-    background:linear-gradient(45deg,#ff4d6d,#ff758c);
-    color:white;
-    border:none;
-    padding:14px;
-    width:100%;
-    border-radius:14px;
-    margin-top:15px;
-    cursor:pointer;
+@keyframes aparecer {
+  from { opacity:0; transform:scale(0.8); }
+  to { opacity:1; transform:scale(1); }
 }
 
-input, textarea{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border-radius:12px;
-    border:1px solid #ddd;
+.foto {
+  width:100%;
+  border-radius:15px;
+  margin-top:10px;
 }
 
-textarea{
-    min-height:80px;
+.texto {
+  font-size:18px;
+  margin-top:10px;
 }
 
-.sorpresa{
-    display:none;
-    margin-top:20px;
-}
-
-.mensaje{
-    background:#ffe0ea;
-    padding:10px;
-    border-radius:10px;
-    margin-top:10px;
+.mensaje {
+  background:#ffe6ec;
+  margin:8px 0;
+  padding:8px;
+  border-radius:10px;
 }

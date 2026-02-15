@@ -1,51 +1,25 @@
-const express = require("express");
-const fs = require("fs");
+import express from "express";
+import cors from "cors";
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
 
-const DB_FILE = "mensajes.json";
+let mensajes = [];
 
-// Crear archivo si no existe
-if (!fs.existsSync(DB_FILE)) {
-    fs.writeFileSync(DB_FILE, "[]");
-}
-
-// GUARDAR MENSAJE
-app.post("/mensaje", (req, res) => {
-
-    const { nombre, mensaje } = req.body;
-
-    if (!nombre || !mensaje) {
-        return res.status(400).json({ error: "Faltan datos" });
-    }
-
-    const data = JSON.parse(fs.readFileSync(DB_FILE));
-
-    data.push({
-        nombre,
-        mensaje,
-        fecha: new Date()
-    });
-
-    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
-
-    res.json({ ok: true });
+app.get("/", (req, res) => {
+  res.send("API San Valentín 💖");
 });
 
-// OBTENER MENSAJES
 app.get("/mensajes", (req, res) => {
-
-    const data = JSON.parse(fs.readFileSync(DB_FILE));
-    res.json(data);
-
+  res.json(mensajes);
 });
 
-/* ⭐ ESTA PARTE ES LA IMPORTANTE ⭐ */
+app.post("/mensaje", (req, res) => {
+  const { nombre, mensaje } = req.body;
+  mensajes.push({ nombre, mensaje, fecha: new Date() });
+  res.json({ ok: true });
+});
+
 const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-    console.log("Servidor corriendo en puerto " + PORT);
-});
+app.listen(PORT, () => console.log("Servidor listo", PORT));
