@@ -1,69 +1,83 @@
-body {
-  background: linear-gradient(135deg,#ff758c,#ff7eb3);
-  font-family: 'Segoe UI', sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  margin:0;
+body{
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+font-family:sans-serif;
+margin:0;
+display:flex;
+justify-content:center;
 }
 
-.card {
-  background:white;
-  width:90%;
-  max-width:380px;
-  padding:25px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 15px 30px rgba(0,0,0,.2);
+.container{
+background:white;
+width:90%;
+max-width:400px;
+padding:25px;
+border-radius:20px;
+margin:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-button {
-  background:#ff4d6d;
-  color:white;
-  border:none;
-  padding:12px 20px;
-  border-radius:30px;
-  cursor:pointer;
-  margin:10px 0;
-  width:100%;
+button{
+background:#ff4d6d;
+color:white;
+border:none;
+padding:12px;
+margin:8px 0;
+border-radius:25px;
+width:100%;
 }
 
-input, textarea {
-  width:100%;
-  padding:10px;
-  margin:5px 0;
-  border-radius:10px;
-  border:1px solid #ddd;
+input,textarea{
+width:100%;
+padding:10px;
+margin:5px 0;
+border-radius:10px;
+border:1px solid #ddd;
 }
 
-.hidden {
-  display:none;
+.hidden{
+display:none;
 }
 
-#sorpresa {
-  animation: aparecer 1.5s ease forwards;
+/* CARTA */
+.carta{
+background:#ffe6ec;
+padding:20px;
+border-radius:15px;
+animation:abrirCarta 1s forwards;
 }
 
-@keyframes aparecer {
-  from { opacity:0; transform:scale(0.8); }
-  to { opacity:1; transform:scale(1); }
+@keyframes abrirCarta{
+from{transform:scale(.5);opacity:0;}
+to{transform:scale(1);opacity:1;}
 }
 
-.foto {
-  width:100%;
-  border-radius:15px;
-  margin-top:10px;
+/* GALERIA */
+.galeria{
+display:flex;
+overflow-x:auto;
+gap:10px;
 }
 
-.texto {
-  font-size:18px;
-  margin-top:10px;
+.galeria img{
+width:80%;
+border-radius:15px;
 }
 
-.mensaje {
-  background:#ffe6ec;
-  margin:8px 0;
-  padding:8px;
-  border-radius:10px;
+/* MENSAJES */
+.mensaje{
+background:#ffe6ec;
+margin:8px 0;
+padding:8px;
+border-radius:10px;
+}
+
+@keyframes subir{
+from{transform:translateY(0);}
+to{transform:translateY(-110vh);}
+}
+
+@keyframes caer{
+from{transform:translateY(0);}
+to{transform:translateY(110vh);}
 }
