@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti 💖</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>💖 Para Ti 💖</h1>
+
+            <p class="texto">
+                Gracias por tantos años de amistad.
+                Siempre serás alguien muy especial ✨
+            </p>
+
+            <button onclick="mostrarSorpresa()" class="btn">
+                Abrir sorpresa 🎁
+            </button>
+
+            <div id="sorpresa" class="sorpresa">
+
+                <p class="texto">
+                    Tal vez no exista la persona perfecta,
+                    pero me encanta la persona que eres 💕
+                </p>
+
+                <h3>Déjame un mensaje 💌</h3>
+
+                <input id="nombre" placeholder="Tu nombre">
+                <textarea id="mensaje" placeholder="Escribe algo bonito..."></textarea>
+
+                <button onclick="enviarMensaje()" class="btn">
+                    Enviar
+                </button>
+
+                <div id="listaMensajes"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
