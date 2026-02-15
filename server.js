@@ -43,6 +43,9 @@ app.get("/mensajes", (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("Servidor listo http://localhost:3000");
+/* ⭐ ESTA PARTE ES LA IMPORTANTE ⭐ */
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Servidor corriendo en puerto " + PORT);
 });
