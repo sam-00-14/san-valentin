@@ -1,4 +1,4 @@
-const API = "https://TU-BACKEND.onrender.com";
+const API = "https://san-valentin-50q2.onrender.com/";
 
 const carta=document.getElementById("carta");
 const musica=document.getElementById("musica");
